@@ -1,6 +1,35 @@
 # 随机食谱 🎲
 
-微信小程序 —— 不知道吃什么？让老虎机帮你决定，顺便看看附近真实商家。
+> 一个微信小程序：**按你当前定位，随机抽一道附近真能吃到、预算和口味都对得上的菜** —— 专治「今天吃什么」。
+
+[![Platform](https://img.shields.io/badge/platform-微信小程序-07C160)](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+[![Version](https://img.shields.io/badge/version-v1.0.11-FF6B35)](https://github.com/mzy8262-svg/random-recipe/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/mzy8262-svg/random-recipe?style=social)](https://github.com/mzy8262-svg/random-recipe/stargazers)
+
+<p align="center">
+  <img src="docs/images/home.jpg" width="240" alt="首页：定位 + 三层筛选 + 菜系" />
+  <img src="docs/images/result.jpg" width="240" alt="抽签结果：抽到毛血旺，附近 557m 的店有" />
+  <img src="docs/images/detail.jpg" width="240" alt="商家详情：真实 POI、照片、地图、去美团看价" />
+</p>
+<p align="center"><sub>左：定位 + 场景/品类/菜系筛选　中：抽到「毛血旺」，直接告诉你附近哪家店有　右：真实商家详情，可跳美团看价</sub></p>
+
+## 5 分钟跑起来
+
+1. 安装 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)，登录微信
+2. 导入本目录（`D:\mathtype\random-recipe`）；没有 AppID 就选「测试号」
+3. 申请一个免费的高德 **Web 服务** Key（[控制台](https://console.amap.com/dev/key/app)），复制 `utils/config.example.js` 为 `utils/config.local.js`，把 Key 填进去
+4. 点「编译」即可运行：抽签、筛选不联网也能用；定位/附近商家需要 Key 和网络
+
+> **为什么仓库里没有 Key**：高德 Key 属于个人凭证，放在本地 `utils/config.local.js`（已被 `.gitignore` 忽略），仓库只提交模板 `config.example.js`。克隆后自己填一个就能跑。
+
+## 免责声明
+
+商家名称、地址、电话、评分、推荐菜等数据来自[高德开放平台](https://lbs.amap.com/)，仅供学习与个人使用；商用请自行申请高德授权。菜品热量为估算值，价格以门店为准。
+
+---
+
+## 功能
 
 ## 功能
 
