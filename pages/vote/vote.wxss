@@ -1,0 +1,49 @@
+.page { padding-bottom: 80rpx; }
+.pad-h { padding: 0 24rpx; }
+
+.intro-title { font-size: 32rpx; font-weight: 800; }
+.intro-text { font-size: 24rpx; color: #B08060; margin-top: 10rpx; line-height: 1.6; }
+
+.name-card { display: flex; align-items: center; }
+.name-label { font-size: 26rpx; color: #666; white-space: nowrap; }
+.name-input {
+  flex: 1;
+  background: #FFF4EC;
+  border-radius: 14rpx;
+  padding: 12rpx 20rpx;
+  margin-left: 16rpx;
+  font-size: 26rpx;
+}
+
+.winner { text-align: center; background: linear-gradient(160deg, #FF8E53, #FF6B35); color: #fff; }
+.winner-emoji { font-size: 90rpx; }
+.winner-name { font-size: 42rpx; font-weight: 800; margin-top: 8rpx; }
+.winner-sub { font-size: 24rpx; opacity: 0.92; margin-top: 10rpx; }
+
+.cand-card { transition: all 0.2s; }
+.cand-card:active { transform: scale(0.98); }
+.cand-win { border: 3rpx solid #FF6B35; background: #FFF4EC; }
+.cand-row { display: flex; align-items: center; }
+.cand-emoji { font-size: 46rpx; margin-right: 20rpx; }
+.cand-info { flex: 1; }
+.cand-name { font-size: 30rpx; font-weight: 700; }
+.cand-sub { font-size: 22rpx; color: #B08060; margin-top: 4rpx; }
+.cand-votes { text-align: center; }
+.vote-num { font-size: 42rpx; font-weight: 800; color: #FF6B35; }
+.vote-unit { font-size: 22rpx; color: #B08060; margin-left: 4rpx; }
+
+.vote-bar {
+  height: 12rpx;
+  background: #F5EDE6;
+  border-radius: 8rpx;
+  margin-top: 18rpx;
+  overflow: hidden;
+}
+.vote-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #FF8E53, #FF6B35);
+  border-radius: 8rpx;
+  transition: width 0.3s;
+}
+
+.hint { color: #B08060; font-size: 23rpx; font-weight: 400; }

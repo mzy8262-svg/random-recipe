@@ -1,0 +1,21 @@
+.page { padding-bottom: 80rpx; }
+.pad-h { padding: 0 24rpx; }
+
+.intro-title { font-size: 32rpx; font-weight: 800; }
+.intro-text { font-size: 24rpx; color: #B08060; margin-top: 10rpx; line-height: 1.6; }
+
+.goal-hint { background: #FFF4EC; color: #B0603A; font-size: 25rpx; }
+
+.history-item { display: flex; align-items: center; padding: 20rpx 26rpx; }
+.h-emoji { font-size: 40rpx; margin-right: 20rpx; }
+.h-info { flex: 1; }
+.h-name { font-size: 27rpx; font-weight: 600; }
+.h-sub { font-size: 22rpx; color: #B08060; margin-top: 4rpx; }
+
+.footer-note {
+  text-align: center;
+  font-size: 21rpx;
+  color: #C8B0A0;
+  margin-top: 50rpx;
+}
+.hint { color: #B08060; font-size: 23rpx; font-weight: 400; }

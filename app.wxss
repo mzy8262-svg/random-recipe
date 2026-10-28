@@ -1,0 +1,167 @@
+/* 全局样式 —— 温暖食欲系配色 */
+page {
+  background: #FFF8F2;
+  font-size: 28rpx;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', sans-serif;
+}
+
+/* 通用卡片 */
+.card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin: 20rpx 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(255, 107, 53, 0.08);
+}
+
+/* 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44rpx;
+  padding: 18rpx 40rpx;
+  font-size: 28rpx;
+  border: none;
+  line-height: 1.4;
+}
+.btn::after { border: none; }
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B35, #FF8E53);
+  color: #fff;
+}
+.btn-primary:active { opacity: 0.85; transform: scale(0.97); }
+.btn-ghost {
+  background: #fff;
+  color: #FF6B35;
+  border: 2rpx solid #FFD4C2;
+}
+.btn-ghost:active { background: #FFF0E8; }
+.btn-block { display: flex; width: 100%; }
+
+/* 筛选 chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 26rpx;
+  border-radius: 32rpx;
+  background: #fff;
+  border: 2rpx solid #F0E6DE;
+  color: #666;
+  font-size: 26rpx;
+  margin: 8rpx;
+}
+.chip.active {
+  background: #FF6B35;
+  border-color: #FF6B35;
+  color: #fff;
+  font-weight: 600;
+}
+.chip-wrap { display: flex; flex-wrap: wrap; }
+
+/* 分区标题 */
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin: 28rpx 32rpx 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-title .hint {
+  font-size: 24rpx;
+  color: #B08060;
+  font-weight: 400;
+}
+
+/* 数据来源徽标 */
+.badge {
+  display: inline-block;
+  font-size: 20rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 16rpx;
+  margin-right: 8rpx;
+}
+.badge-real { background: #E6F7EE; color: #18A058; }
+.badge-demo { background: #F2F2F2; color: #888; }
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.modal-body {
+  background: #fff;
+  width: 100%;
+  border-radius: 32rpx 32rpx 0 0;
+  padding: 32rpx;
+  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 80rpx 40rpx;
+  color: #B08060;
+}
+.empty .emoji { font-size: 80rpx; margin-bottom: 16rpx; }
+
+
+/* ===== 手动复制面板（复制失败兜底，文字可长按选中） ===== */
+.copy-mask {
+  position: fixed;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 40rpx;
+}
+.copy-body {
+  width: 100%;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 36rpx 30rpx 30rpx;
+  box-sizing: border-box;
+}
+.copy-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+.copy-hint {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 18rpx;
+}
+.copy-text {
+  background: #FFF8F2;
+  border: 1rpx solid #FFE0CC;
+  border-radius: 16rpx;
+  padding: 22rpx;
+  font-size: 30rpx;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 28rpx;
+  word-break: break-all;
+}
+.copy-btn {
+  display: inline-block;
+  margin-left: 12rpx;
+  padding: 4rpx 18rpx;
+  font-size: 24rpx;
+  color: #FF6B35;
+  border: 1rpx solid #FF6B35;
+  border-radius: 999rpx;
+  background: #fff;
+}

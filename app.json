@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/vote/vote",
+    "pages/prefs/prefs"
+  ],
+  "window": {
+    "navigationBarTitleText": "随机食谱",
+    "navigationBarBackgroundColor": "#FF6B35",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FFF8F2",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF6B35",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "🎲 抽一个"
+      },
+      {
+        "pagePath": "pages/vote/vote",
+        "text": "🗳️ 一起选"
+      },
+      {
+        "pagePath": "pages/prefs/prefs",
+        "text": "⚙️ 偏好"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于查找你附近 5 公里内的美食商家，以及地图选点定位"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "__usePrivacyCheck__": true,
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

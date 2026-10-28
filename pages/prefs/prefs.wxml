@@ -1,0 +1,65 @@
+<view class="page">
+
+  <view class="card intro">
+    <view class="intro-title">口味偏好与忌口</view>
+    <view class="intro-text">勾选后抽签会自动避开这些。设置保存在手机本地，随时可改。</view>
+  </view>
+
+  <view class="section-title">忌口</view>
+  <view class="chip-wrap pad-h">
+    <view class="chip {{prefOn[item.id] ? 'active' : ''}}"
+          wx:for="{{prefs}}" wx:key="id" data-id="{{item.id}}" bindtap="togglePref">
+      {{item.name}}
+    </view>
+  </view>
+
+  <view class="section-title">饮食目标</view>
+  <view class="chip-wrap pad-h">
+    <view class="chip {{selectedGoal === item.id ? 'active' : ''}}"
+          wx:for="{{goals}}" wx:key="id" data-id="{{item.id}}" bindtap="pickGoal">
+      {{item.name}}
+    </view>
+  </view>
+
+  <view class="card goal-hint" wx:if="{{selectedGoal === 'losefat'}}">
+    🥗 减脂期模式：只抽 500 千卡以内的选项
+  </view>
+  <view class="card goal-hint" wx:if="{{selectedGoal === 'save'}}">
+    💰 省钱期模式：只抽 20 元以内的选项
+  </view>
+  <view class="card goal-hint" wx:if="{{selectedGoal === 'gainmuscle'}}">
+    💪 增肌期：优先看看高蛋白标签
+  </view>
+
+  <!-- 抽签历史 -->
+  <view class="section-title" bindtap="toggleHistory">
+    抽签历史
+    <text class="hint">{{historyVisible ? '收起 ▴' : '展开 ▾'}}</text>
+  </view>
+
+  <view wx:if="{{historyVisible}}">
+    <view class="empty" wx:if="{{!history.length}}">
+      <view class="emoji">📜</view>
+      <view>还没有抽签记录</view>
+    </view>
+    <view class="card history-item" wx:for="{{history}}" wx:key="time">
+      <text class="h-emoji">{{item.emoji}}</text>
+      <view class="h-info">
+        <view class="h-name">{{item.name}}</view>
+        <view class="h-sub">¥{{item.price}} · 🔥{{item.kcal}}千卡</view>
+      </view>
+    </view>
+    <view class="pad-h" wx:if="{{history.length}}">
+      <button class="btn btn-ghost btn-block" bindtap="clearHistory">清空历史</button>
+    </view>
+  </view>
+
+  <view class="pad-h" style="margin-top: 40rpx;">
+    <button class="btn btn-ghost btn-block" bindtap="clearAll">重置所有设置</button>
+  </view>
+
+  <view class="footer-note">
+    随机食谱 v1.0 · 附近商家数据来自高德开放平台
+  </view>
+
+</view>

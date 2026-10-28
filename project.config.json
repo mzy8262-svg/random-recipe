@@ -1,0 +1,44 @@
+{
+  "compileType": "miniprogram",
+  "appid": "wx5a88d9f2e77d71ff",
+  "projectname": "random-recipe",
+  "description": "随机食谱 — 附近美食抽签助手",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "minified": true,
+    "urlCheck": false,
+    "postcss": true,
+    "ignoreUploadUnusedFiles": true,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "libVersion": "3.5.5",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      { "type": "folder", "value": "web-demo" },
+      { "type": "file", "value": "README.md" },
+      { "type": "file", "value": "PUBLISH.md" }
+    ],
+    "include": []
+  }
+}

@@ -1,0 +1,47 @@
+<view class="page">
+
+  <view class="card intro">
+    <view class="intro-title">🗳️ 多人一起选</view>
+    <view class="intro-text">系统抽出 4 个候选，大家轮流点自己想吃的，最后自动选出得票最高的。也可以点右上角「…」分享给朋友。</view>
+  </view>
+
+  <view class="card name-card">
+    <text class="name-label">投票人：</text>
+    <input class="name-input" placeholder="输入你的称呼（可不填）" value="{{voterName}}" bindinput="onNameInput" />
+  </view>
+
+  <!-- 结果 -->
+  <view class="card winner" wx:if="{{finished && winner}}">
+    <view class="winner-emoji">{{winner.emoji}}</view>
+    <view class="winner-name">{{winner.name}}</view>
+    <view class="winner-sub">共 {{voterCount}} 票中胜出 · ¥{{winner.price}} · 🔥{{winner.kcal}}千卡</view>
+    <button class="btn btn-primary btn-block" style="margin-top: 24rpx;" bindtap="resetVote">再来一轮</button>
+  </view>
+
+  <!-- 候选 -->
+  <view class="section-title">候选名单 <text class="hint">{{voterCount}} 人已投</text></view>
+
+  <view class="card cand-card {{finished && winner.name === item.name ? 'cand-win' : ''}}"
+        wx:for="{{candidates}}" wx:key="name" data-name="{{item.name}}" bindtap="vote">
+    <view class="cand-row">
+      <text class="cand-emoji">{{item.emoji}}</text>
+      <view class="cand-info">
+        <view class="cand-name">{{item.name}}</view>
+        <view class="cand-sub">¥{{item.price}} · 🔥{{item.kcal}}千卡</view>
+      </view>
+      <view class="cand-votes">
+        <text class="vote-num">{{votes[item.name]}}</text>
+        <text class="vote-unit">票</text>
+      </view>
+    </view>
+    <view class="vote-bar">
+      <view class="vote-bar-inner" style="width: {{voterCount ? (votes[item.name] * 100 / voterCount) : 0}}%"></view>
+    </view>
+  </view>
+
+  <view class="pad-h" style="margin-top: 30rpx;" wx:if="{{!finished}}">
+    <button class="btn btn-primary btn-block" bindtap="finishVote">🏁 结束投票，看结果</button>
+    <button class="btn btn-ghost btn-block" style="margin-top: 16rpx;" bindtap="resetVote">🔄 换一批候选</button>
+  </view>
+
+</view>

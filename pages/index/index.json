@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "随机食谱 · 抽一个",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFF8F2",
+  "onReachBottomDistance": 120
+}

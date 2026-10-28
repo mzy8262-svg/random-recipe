@@ -1,0 +1,88 @@
+<view class="page" wx:if="{{merchant}}">
+
+  <view class="card hero">
+    <view class="hero-head">
+      <text class="badge badge-real">真实商家</text>
+      <text class="hero-name" user-select>{{merchant.name}}</text>
+    </view>
+    <view class="hero-meta">
+      <text wx:if="{{merchant.rating}}" class="rating" user-select>★ {{merchant.rating}}</text>
+      <text wx:if="{{merchant.cost}}" class="cost" user-select>人均 ¥{{merchant.cost}}</text>
+      <text class="dist">{{distText}}</text>
+      <text wx:if="{{travelText}}" class="travel">{{travelText}}</text>
+    </view>
+    <view class="hero-line" bindtap="copyAddress">📍 <text user-select>{{merchant.address || '地址未登记'}}</text> <text class="copy-btn">复制店名</text></view>
+    <view class="hero-line" wx:if="{{merchant.openTime}}">🕐 <text user-select>{{merchant.openTime}}</text></view>
+    <view class="hero-line" wx:if="{{merchant.tel}}">📞 <text user-select>{{merchant.tel}}</text></view>
+    <view class="hero-actions">
+      <button class="btn btn-primary" bindtap="openLocation">🧭 导航过去</button>
+      <button class="btn btn-ghost" wx:if="{{hasPhone}}" bindtap="callPhone">📞 打电话</button>
+      <button class="btn btn-ghost" wx:else bindtap="copyAddress">📋 复制店名/地址</button>
+    </view>
+    <view class="hero-actions hero-actions-second">
+      <button class="btn btn-ghost" bindtap="onOpenMeituan">🛵 去美团看价</button>
+      <button class="btn btn-ghost" bindtap="onCopyForTaobao">🛒 去淘宝闪购</button>
+    </view>
+    <view class="hero-note">价格在高德接口里没有，点上面按钮去美团/淘宝看实时价；会先问你要不要复制店名，复制成功会有「已复制」提示。店名/地址/电话都可以长按文字直接选中复制</view>
+  </view>
+
+  <!-- 门店照片（高德有图才显示，点击看大图） -->
+  <swiper class="photo-swiper" wx:if="{{photos.length}}" indicator-dots circular indicator-active-color="#FF6B35">
+    <swiper-item wx:for="{{photos}}" wx:key="*this" data-idx="{{index}}" bindtap="previewPhoto">
+      <image class="photo" src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 地图 -->
+  <view class="card map-card" wx:if="{{mapMarkers.length}}">
+    <map
+      id="merchantMap"
+      class="map"
+      latitude="{{merchant.lat}}"
+      longitude="{{merchant.lng}}"
+      scale="15"
+      markers="{{mapMarkers}}"
+      show-location
+    ></map>
+  </view>
+
+  <!-- 本店菜单：只有真实来源才列菜，宁可空着也不编造 -->
+  <view class="section-title">📖 本店菜单
+    <text wx:if="{{menuKind === 'seed'}}" class="badge badge-real">真实菜单 · {{menuSource}}</text>
+    <text wx:elif="{{menuKind === 'amap'}}" class="badge badge-real">高德推荐菜</text>
+    <text wx:else class="badge badge-demo">线上暂无数据</text>
+  </view>
+
+  <view class="card dish-card" wx:for="{{dishes}}" wx:key="name" data-idx="{{index}}" bindtap="onDishTap">
+    <view class="dish-row">
+      <text class="dish-emoji">{{item.emoji}}</text>
+      <view class="dish-info">
+        <view class="dish-name"><text user-select>{{item.name}}</text> <text wx:if="{{item.star}}" class="dish-star">招牌</text></view>
+        <view class="dish-sub" wx:if="{{item.kcal}}">🔥 <text user-select>约 {{item.kcal}} 千卡</text></view>
+      </view>
+      <text class="dish-price" wx:if="{{item.price}}">¥{{item.price}}</text>
+      <text class="dish-price dish-price-tip" wx:else>到店看价</text>
+    </view>
+  </view>
+
+  <view class="card menu-empty" wx:if="{{menuKind === 'none'}}">
+    <view class="menu-empty-emoji">🍽️</view>
+    <view class="menu-empty-title">这家店线上还没有可信的菜单</view>
+    <view class="menu-empty-sub">我们不编造菜品和价格。点上面「🧭 导航过去」，到店看菜单再选。</view>
+  </view>
+
+  <view class="tip" wx:if="{{menuKind === 'seed'}}">* 菜单为人工录入的真实菜单，价格随门店活动可能变动，以门店为准</view>
+  <view class="tip" wx:elif="{{menuKind === 'amap'}}">* 菜名来自高德地图 POI 的推荐菜标签（只有菜名、没有价格），价格以门店为准</view>
+  <view class="tip" wx:else>* 商家名称/地址/电话/评分均来自高德地图真实 POI</view>
+
+  <!-- 复制失败兜底（C 方案）：把文本列出来，长按可手动选中复制 -->
+  <view class="copy-mask" wx:if="{{copyPanel.show}}" catchtap="closeCopyPanel">
+    <view class="copy-body" catchtap="noop">
+      <view class="copy-title">{{copyPanel.title}}</view>
+      <view class="copy-hint">长按下面的文字 → 全选 / 复制</view>
+      <view class="copy-text"><text user-select>{{copyPanel.text}}</text></view>
+      <button class="btn btn-primary btn-block" bindtap="closeCopyPanel">关闭</button>
+    </view>
+  </view>
+
+</view>
